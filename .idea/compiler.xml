@@ -9,6 +9,7 @@
         <module name="eurekaserver" />
         <module name="eurekaclient" />
         <module name="Ver1.0.3" />
+        <module name="register" />
       </profile>
     </annotationProcessing>
   </component>
@@ -16,6 +17,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="eurekaclient" options="-parameters" />
       <module name="eurekaserver" options="-parameters" />
+      <module name="register" options="-parameters" />
     </option>
   </component>
 </project>
