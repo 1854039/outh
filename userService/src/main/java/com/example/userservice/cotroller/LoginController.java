@@ -9,10 +9,11 @@ import java.beans.PropertyVetoException;
 import java.sql.*;
 import java.util.List;
 import java.util.Map;
-
+import com.alibaba.druid.pool.DruidDataSource;
 @RestController
 public class LoginController {
 
+    @Autowired
     JdbcTemplate jdbcTemplate;
 
     @CrossOrigin
@@ -22,22 +23,24 @@ public class LoginController {
         //Class.forName("com.mysql.cj.jdbc.Driver");
         //在user表中检索是否有username
         int userid = -1;
-        ComboPooledDataSource dataSource = new ComboPooledDataSource();
-        String connectionUrl = "jdbc:mysql://rm-bp115mpt4e06jd56y125010im.mysql.rds.aliyuncs.com/login-register";
-        ResultSet resultSet;
-        dataSource.setDriverClass("com.mysql.cj.jdbc.Driver");
+
+        //ComboPooledDataSource dataSource = new ComboPooledDataSource();
+        //String connectionUrl = "jdbc:mysql://rm-bp115mpt4e06jd56y125010im.mysql.rds.aliyuncs.com/login-register";
+      //  ResultSet resultSet;
+      /*  dataSource.setDriverClass("com.mysql.cj.jdbc.Driver");
         dataSource.setJdbcUrl(connectionUrl);
         dataSource.setUser("web_soa");
-        dataSource.setPassword("Web_soa123");
-
+        dataSource.setPassword("Web_soa123");*/
+/*
         Connection connection = dataSource.getConnection();
-        Statement statement = connection.createStatement();
-        String sqlquery = "SELECT * FROM user WHERE user_name=";
+        Statement statement = connection.createStatement();*/
+        String sqlquery = "SELECT * FROM user WHERE user_name=?";
         //输入希望执行的SQL。
-        resultSet = statement.executeQuery(sqlquery + '"' + userName + '"');
+        String result= jdbcTemplate.queryForObject(sqlquery,String.class,userName);
+          /*      (sqlquery + '"' + userName + '"');*/
 
         /*List<Map<String, Object>> name = */
-        if (resultSet != null) { /*  //有，返回-1
+        if (result != null) { /*  //有，返回-1
         if (name != null) {*/
             return -1;
         }
@@ -55,17 +58,6 @@ public class LoginController {
         }
     }
 
-    @CrossOrigin
-    @RequestMapping(path = "/login", method = RequestMethod.GET)
-    @ResponseBody
-    public int Loginn(@RequestParam(value = "username") String userName, @RequestParam(value = "userpwd") String userPwd) throws ClassNotFoundException, PropertyVetoException, SQLException {
-
-        if (userName == "hc")
-            return -1;
-        else if (userName == "hcc" && userPwd == "1234")
-            return 1;
-return  0;
-    }
 }
 
 

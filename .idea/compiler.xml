@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="eurekaserver" />
-        <module name="Service" />
         <module name="User" />
-        <module name="Eureka" />
         <module name="commonmodel" />
         <module name="userservice" />
+        <module name="Search" />
+        <module name="Service" />
+        <module name="Eureka" />
+        <module name="searchservice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -27,9 +29,11 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Search" options="-parameters" />
       <module name="eurekaclient" options="-parameters" />
       <module name="eurekaserver" options="-parameters" />
       <module name="register" options="-parameters" />
+      <module name="searchservice" options="-parameters" />
       <module name="user" options="-parameters" />
       <module name="userService" options="" />
       <module name="userservice" options="-parameters" />

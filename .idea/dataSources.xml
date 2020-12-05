@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="UserInfo" uuid="687e6936-d7f5-46d2-9323-d715f3960b53">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://rm-bp115mpt4e06jd56y125010im.mysql.rds.aliyuncs.com:3306/login-register?allowPublicKeyRetrieval=true</jdbc-url>
+    </data-source>
+  </component>
+</project>

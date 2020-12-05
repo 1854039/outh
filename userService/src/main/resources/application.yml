@@ -4,6 +4,15 @@ server:
 spring:
   application:
     name: userService
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: web_soa
+    password: Web_soa123
+    url: jdbc:mysql://rm-bp115mpt4e06jd56y125010im.mysql.rds.aliyuncs.com:3306/login-register?allowPublicKeyRetrieval=true
+    type: com.alibaba.druid.pool.DruidDataSource
+  jdbc:
+    template:
+      class: org.springframework.jdbc.core.JdbcTemplate
 eureka:
   instance:
     hostname: 127.0.0.1
