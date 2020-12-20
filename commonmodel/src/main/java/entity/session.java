@@ -30,7 +30,7 @@ public class session {
 
         private static ConcurrentHashMap<String, HttpSession> sessionMap;
         static {
-            sessionMap = new ConcurrentHashMap<>();
+            sessionMap = new ConcurrentHashMap<String, HttpSession>();
         }
 
         public static ConcurrentHashMap<String, HttpSession> getSessionMap() {
@@ -45,7 +45,7 @@ public class session {
             }
 
             Set<Entry<String, HttpSession>> entrySet = map.entrySet();
-            List<String> list = new ArrayList<>();
+            List<String> list = new ArrayList<String>();
             for (Entry<String, HttpSession> entry : entrySet) {
                 // 如果session过期了，就清除掉这个session
                 long max_age = sessionMaxAge * 1000L;
