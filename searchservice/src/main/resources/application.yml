@@ -10,4 +10,4 @@ eureka:
     instance-id: ${eureka.instance.hostname}:${server.port}
   client:
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:8000/eureka
+      defaultZone: http://${eureka.instance.hostname}:8003/eureka

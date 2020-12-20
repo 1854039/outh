@@ -28,7 +28,7 @@ public class searchController {
    // private String ReqURL="http://api.kdniao.cc/Ebusiness/EbusinessOrderHandle.aspx";
 
     @CrossOrigin
-    @RequestMapping(path = "/shentong", method = RequestMethod.GET)
+    @RequestMapping(path = "/search", method = RequestMethod.GET)
     @ResponseBody
     public void SearchShenTong(@RequestParam(value = "num") String packageID,@RequestParam(value = "cid") String companyID ) throws Exception {
         String requestData= "{'OrderCode':'','ShipperCode':'" + companyID + "','LogisticCode':'" + packageID + "','CustomerName':'"+"4349"+"'}";
