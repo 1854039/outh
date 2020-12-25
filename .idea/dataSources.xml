@@ -7,5 +7,13 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://rm-bp115mpt4e06jd56y125010im.mysql.rds.aliyuncs.com:3306/login-register?allowPublicKeyRetrieval=true</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="expressservice (1)/Hibernate" uuid="647d29ed-a208-41ca-96e8-1ccd682e2b56">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate</remarks>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://rm-bp115mpt4e06jd56y125010im.mysql.rds.aliyuncs.com/login-register?useUnicode=true&amp;allowPublicKeyRetrieval=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</jdbc-url>
+    </data-source>
   </component>
 </project>

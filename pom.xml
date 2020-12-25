@@ -15,6 +15,7 @@
         <module>eurekaserver</module>
         <module>userService</module>
         <module>searchservice</module>
+        <module>expressService</module>
     </modules>
     <dependencies><dependency>
         <groupId>org.springframework.boot</groupId>

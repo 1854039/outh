@@ -1,0 +1,20 @@
+server:
+  port: 8704
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://rm-bp115mpt4e06jd56y125010im.mysql.rds.aliyuncs.com/login-register?useUnicode=true&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: web_soa
+    password: Web_soa123
+  application:
+    name: test
+
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    prefer-ip-address: true
+    instance-id: ${eureka.instance.hostname}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:8700/eureka # 指定服务注册中心
