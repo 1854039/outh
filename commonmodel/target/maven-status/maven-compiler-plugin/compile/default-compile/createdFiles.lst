@@ -1,1 +1,4 @@
 entity\message.class
+entity\session$sessionInner.class
+entity\session.class
+entity\session$1.class

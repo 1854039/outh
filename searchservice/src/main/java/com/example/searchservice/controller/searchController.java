@@ -30,7 +30,7 @@ public class searchController {
     @CrossOrigin
     @RequestMapping(path = "/search", method = RequestMethod.GET)
     @ResponseBody
-    public void SearchShenTong(@RequestParam(value = "num") String packageID,@RequestParam(value = "cid") String companyID ) throws Exception {
+    public JSONObject SearchShenTong(@RequestParam(value = "num") String packageID,@RequestParam(value = "cid") String companyID ) throws Exception {
         String requestData= "{'OrderCode':'','ShipperCode':'" + companyID + "','LogisticCode':'" + packageID + "','CustomerName':'"+"4349"+"'}";
         Map<String, String> params = new HashMap<String, String>();
          connectsearch conn=new connectsearch();
@@ -43,11 +43,13 @@ public class searchController {
         params.put("DataType", "2");
 
         String result=sendPost(url, params);
-
+        JSONObject R=JSON.parseObject(result);
         //调用connectionService方法访问第三方api
         //String post= conn.connectService(url);
         //JSONObject jsonObject=JSON.parseObject(post);
-        System.out.println(result);
+        // System.out.println(result);
+        return R;
+
     }
     @SuppressWarnings("unused")
     private String MD5(String str, String charset) throws Exception {

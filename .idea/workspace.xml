@@ -23,20 +23,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3b9bff4-6857-4d21-aee8-60c58f3e857e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/commonmodel/src/main/java/entity/session.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/controller/searchmyExpress.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/userService/src/main/java/com/example/userservice/Dao/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/userService/src/main/java/com/example/userservice/pojo/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/userService/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Search/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Search/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commonmodel/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/commonmodel/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eurekaserver/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/eurekaserver/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Search/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Search/src/main/java/example/SearchApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Search/src/main/java/example/controller/SearchDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Search/src/main/java/example/controller/SearchService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Search/src/main/java/example/controller/httpConnectionService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Search/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Search/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Search/target/classes/example/SearchApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Search/target/classes/example/controller/SearchDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Search/target/classes/example/controller/SearchService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Search/target/classes/example/controller/httpConnectionService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServiceAPI/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/commonmodel/target/classes/entity/message.class" beforeDir="false" afterPath="$PROJECT_DIR$/commonmodel/target/classes/entity/message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commonmodel/target/commonmodel-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/commonmodel/target/commonmodel-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commonmodel/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/commonmodel/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commonmodel/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/commonmodel/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/controller/searchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/controller/searchController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/searchservice/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/searchservice/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userService/src/main/java/com/example/userservice/UserserviceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/userService/src/main/java/com/example/userservice/UserserviceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/userService/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/userService/src/main/java/com/example/userservice/cotroller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/userService/src/main/java/com/example/userservice/cotroller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userService/src/main/resources/application.yml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +96,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/searchservice/pom.xml" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -102,18 +114,7 @@
       <recent name="C:\Users\lin\Desktop\Ver1.0.3\Service" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.UserserviceApplication">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.EurekaserverApplication">
     <configuration name="EurekaclientApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="userService" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.eurekaclient.EurekaclientApplication" />
@@ -292,6 +293,12 @@
       <workItem from="1608263067066" duration="637000" />
       <workItem from="1608264484794" duration="622000" />
       <workItem from="1608270900488" duration="19333000" />
+      <workItem from="1608438503695" duration="5681000" />
+      <workItem from="1608469540962" duration="3359000" />
+      <workItem from="1608554511664" duration="620000" />
+      <workItem from="1608811482189" duration="1178000" />
+      <workItem from="1608812989233" duration="1765000" />
+      <workItem from="1608868802044" duration="5450000" />
     </task>
     <servers />
   </component>
@@ -358,38 +365,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="0" y="0" key="FileDocumentManager.FileCacheConflict/0.0.1536.824@0.0.1536.824" timestamp="1606697188191" />
-    <state width="1493" height="262" key="GridCell.Tab.0.bottom" timestamp="1608310855075">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1608882865070">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="262" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1608310855075" />
-    <state width="1493" height="262" key="GridCell.Tab.0.center" timestamp="1608310855075">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1608882865070" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1608882865070">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="262" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1608310855075" />
-    <state width="1493" height="262" key="GridCell.Tab.0.left" timestamp="1608310855075">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1608882865070" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1608882865070">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="262" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1608310855075" />
-    <state width="1493" height="262" key="GridCell.Tab.0.right" timestamp="1608310855075">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1608882865070" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1608882865070">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="262" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1608310855075" />
-    <state width="1493" height="262" key="GridCell.Tab.1.bottom" timestamp="1608310855075">
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1608882865070" />
+    <state width="1493" height="210" key="GridCell.Tab.1.bottom" timestamp="1608882865070">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="262" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1608310855075" />
-    <state width="1493" height="262" key="GridCell.Tab.1.center" timestamp="1608310855075">
+    <state width="1493" height="210" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1608882865070" />
+    <state width="1493" height="210" key="GridCell.Tab.1.center" timestamp="1608882865070">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="262" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1608310855075" />
-    <state width="1493" height="262" key="GridCell.Tab.1.left" timestamp="1608310855075">
+    <state width="1493" height="210" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1608882865070" />
+    <state width="1493" height="210" key="GridCell.Tab.1.left" timestamp="1608882865070">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="262" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1608310855075" />
-    <state width="1493" height="262" key="GridCell.Tab.1.right" timestamp="1608310855075">
+    <state width="1493" height="210" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1608882865070" />
+    <state width="1493" height="210" key="GridCell.Tab.1.right" timestamp="1608882865070">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="262" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1608310855075" />
+    <state width="1493" height="210" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1608882865070" />
     <state width="1493" height="262" key="GridCell.Tab.2.bottom" timestamp="1608310855076">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -414,10 +421,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="299" y="67" key="Maven.ArtifactSearchDialog/0.0.1536.824@0.0.1536.824" timestamp="1606912624022" />
-    <state x="167" y="0" key="SettingsEditor" timestamp="1606701964184">
+    <state x="167" y="0" key="SettingsEditor" timestamp="1608444808614">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="167" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1606701964184" />
+    <state x="167" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1608444808614" />
     <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1608292214363">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -430,10 +437,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="485" y="304" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1606700142379" />
-    <state x="326" y="73" key="new project wizard" timestamp="1607083774645">
+    <state x="326" y="45" key="new project wizard" timestamp="1608443144784">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="326" y="73" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1607083774645" />
+    <state x="326" y="45" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1608443144784" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1607397655839">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -513,7 +520,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/userservice/src/main/java/com/example/userservice/cotroller/LoginController.java</url>
-          <line>30</line>
+          <line>36</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -533,7 +540,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/controller/searchController.java</url>
-          <line>49</line>
+          <line>51</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -558,7 +565,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/userservice/src/main/java/com/example/userservice/cotroller/LoginController.java</url>
-          <line>26</line>
+          <line>32</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -598,7 +605,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/controller/searchController.java</url>
-          <line>80</line>
+          <line>82</line>
           <properties class="com.example.searchservice.controller.searchController" method="base64Encode">
             <option name="EMULATED" value="true" />
           </properties>
@@ -606,7 +613,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/userservice/src/main/java/com/example/userservice/cotroller/LoginController.java</url>
-          <line>22</line>
+          <line>28</line>
           <properties class="com.example.userservice.cotroller.LoginController" method="Login">
             <option name="EMULATED" value="true" />
           </properties>
@@ -614,7 +621,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/userservice/src/main/java/com/example/userservice/cotroller/LoginController.java</url>
-          <line>16</line>
+          <line>20</line>
           <properties field="jdbcTemplate" class="com.example.userservice.cotroller.LoginController" />
           <option name="timeStamp" value="46" />
         </line-breakpoint>
