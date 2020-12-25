@@ -78,4 +78,20 @@ public class R {
     public void setData(Map<String, Object> data) {
         this.data = data;
     }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public Map<String, Object> getData() {
+        return data;
+    }
 }
