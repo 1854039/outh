@@ -16,6 +16,7 @@
         <module>userService</module>
         <module>Search</module>
         <module>searchservice</module>
+        <module>expressService</module>
     </modules>
     <dependencies><dependency>
         <groupId>org.springframework.boot</groupId>

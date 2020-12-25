@@ -2,23 +2,31 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="userservice" />
         <module name="Service" />
-        <module name="User" />
+        <module name="test" />
         <module name="searchservice" />
-        <module name="commonmodel" />
+        <module name="express" />
+        <module name="expressService" />
         <module name="Eureka" />
         <module name="Search" />
+        <module name="User" />
         <module name="eurekaserver" />
+        <module name="commonmodel" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="demo" target="1.8" />
       <module name="Eureka" target="1.5" />
       <module name="eurekaclient" target="1.8" />
+      <module name="express" target="1.8" />
+      <module name="expressservice" target="1.8" />
+      <module name="expressservice (1)" target="1.8" />
       <module name="register" target="1.8" />
       <module name="Service" target="1.5" />
       <module name="services" target="1.5" />
@@ -30,10 +38,16 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Search" options="-parameters" />
+      <module name="demo" options="-parameters" />
       <module name="eurekaclient" options="-parameters" />
       <module name="eurekaserver" options="-parameters" />
+      <module name="express" options="-parameters" />
+      <module name="expressService" options="-parameters" />
+      <module name="expressservice" options="-parameters" />
+      <module name="expressservice (1)" options="-parameters" />
       <module name="register" options="-parameters" />
       <module name="searchservice" options="-parameters" />
+      <module name="test" options="-parameters" />
       <module name="user" options="-parameters" />
       <module name="userService" options="" />
       <module name="userservice" options="-parameters" />

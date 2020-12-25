@@ -1,0 +1,339 @@
+Index: searchservice/src/main/resources/application.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>server:\r\n  port: 8020\r\nspring:\r\n  application:\r\n    name: Search\r\neureka:\r\n  instance:\r\n    hostname: 127.0.0.1\r\n    prefer-ip-address: true\r\n    instance-id: ${eureka.instance.hostname}:${server.port}\r\n  client:\r\n    service-url:\r\n      defaultZone: http://${eureka.instance.hostname}:8000/eureka\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- searchservice/src/main/resources/application.yml	(revision 0611014caa93fd297f7b6f37c86a72b7ce66244d)
++++ searchservice/src/main/resources/application.yml	(date 1608452333850)
+@@ -9,5 +9,7 @@
+     prefer-ip-address: true
+     instance-id: ${eureka.instance.hostname}:${server.port}
+   client:
++#    register-with-eureka: false # 是否注册自己的信息到EurekaServer，默认是true
++#    fetch-registry: false # 是否拉取其它服务的信息，默认是true
+     service-url:
+       defaultZone: http://${eureka.instance.hostname}:8000/eureka
+Index: userService/src/main/java/com/example/userservice/UserserviceApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.userservice;\r\n\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.boot.SpringApplication;\r\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\r\nimport org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;\r\nimport org.springframework.cloud.client.discovery.DiscoveryClient;\r\nimport org.springframework.cloud.client.discovery.EnableDiscoveryClient;\r\n\r\n@SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})\r\n@EnableDiscoveryClient\r\npublic class UserserviceApplication{\r\n\tpublic static void main(String[] args) {\r\n\t\tSpringApplication.run(UserserviceApplication.class, args);\r\n\t}\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- userService/src/main/java/com/example/userservice/UserserviceApplication.java	(revision 0611014caa93fd297f7b6f37c86a72b7ce66244d)
++++ userService/src/main/java/com/example/userservice/UserserviceApplication.java	(date 1608383534004)
+@@ -7,7 +7,8 @@
+ import org.springframework.cloud.client.discovery.DiscoveryClient;
+ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+ 
+-@SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
++//@SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
++@SpringBootApplication()
+ @EnableDiscoveryClient
+ public class UserserviceApplication{
+ 	public static void main(String[] args) {
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"Encoding\">\r\n    <file url=\"file://$PROJECT_DIR$/Search/src/main/java\" charset=\"UTF-8\" />\r\n    <file url=\"file://$PROJECT_DIR$/Search/src/main/resources\" charset=\"UTF-8\" />\r\n    <file url=\"file://$PROJECT_DIR$/eurekaserver/src/main/java\" charset=\"UTF-8\" />\r\n    <file url=\"file://$PROJECT_DIR$/searchservice/src/main/java\" charset=\"UTF-8\" />\r\n    <file url=\"file://$PROJECT_DIR$/userservice/src/main/java\" charset=\"UTF-8\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/encodings.xml	(revision 0611014caa93fd297f7b6f37c86a72b7ce66244d)
++++ .idea/encodings.xml	(date 1607834550499)
+@@ -5,6 +5,6 @@
+     <file url="file://$PROJECT_DIR$/Search/src/main/resources" charset="UTF-8" />
+     <file url="file://$PROJECT_DIR$/eurekaserver/src/main/java" charset="UTF-8" />
+     <file url="file://$PROJECT_DIR$/searchservice/src/main/java" charset="UTF-8" />
+-    <file url="file://$PROJECT_DIR$/userservice/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/userService/src/main/java" charset="UTF-8" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"BranchesTreeState\">\r\n    <expand>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </expand>\r\n    <select />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"f3b9bff4-6857-4d21-aee8-60c58f3e857e\" name=\"Default Changelist\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/Search/pom.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Search/src/main/java/example/SearchApplication.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Search/src/main/java/example/controller/SearchDao.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Search/src/main/java/example/controller/SearchService.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Search/src/main/java/example/controller/httpConnectionService.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Search/src/main/resources/application.yml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/searchservice/.gitignore\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/searchservice/.mvn/wrapper/MavenWrapperDownloader.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/searchservice/.mvn/wrapper/maven-wrapper.jar\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/searchservice/.mvn/wrapper/maven-wrapper.properties\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/searchservice/mvnw\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/searchservice/mvnw.cmd\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/searchservice/pom.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/SearchserviceApplication.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/controller/searchController.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/search/connectsearch.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/searchservice/src/main/resources/application.yml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/searchservice/src/test/java/com/example/searchservice/SearchserviceApplicationTests.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/compiler.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/compiler.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/encodings.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/encodings.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/userService/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/userService/pom.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/userService/src/main/java/com/example/userservice/UserserviceApplication.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/userService/src/main/java/com/example/userservice/UserserviceApplication.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/userService/src/main/java/com/example/userservice/cotroller/LoginController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/userService/src/main/java/com/example/userservice/cotroller/LoginController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/userService/src/main/resources/application.yml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/userService/src/main/resources/application.yml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHome\" value=\"C:\\Users\\lin\\.m2\\wrapper\\dists\\apache-maven-3.6.3-bin\\1iopthnavndlasol9gbrbg6bf2\\apache-maven-3.6.3\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1kou3I5r8BPNYXhkzj9ieKFrshy\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\r\n    <property name=\"DatabaseDriversLRU\" value=\"mysql\" />\r\n    <property name=\"Downloaded.Files.Path.Enabled\" value=\"false\" />\r\n    <property name=\"Repository.Attach.Annotations\" value=\"false\" />\r\n    <property name=\"Repository.Attach.JavaDocs\" value=\"false\" />\r\n    <property name=\"Repository.Attach.Sources\" value=\"false\" />\r\n    <property name=\"RequestMappingsPanelOrder0\" value=\"0\" />\r\n    <property name=\"RequestMappingsPanelOrder1\" value=\"1\" />\r\n    <property name=\"RequestMappingsPanelWidth0\" value=\"75\" />\r\n    <property name=\"RequestMappingsPanelWidth1\" value=\"75\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\r\n    <property name=\"last_directory_selection\" value=\"$PROJECT_DIR$\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/searchservice/pom.xml\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"reference.settings.project.maven.repository.indices\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"ReactorSettings\">\r\n    <option name=\"notificationShown\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"com.example\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\lin\\Desktop\\Ver1.0.3\\Service\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Spring Boot.SearchserviceApplication\">\r\n    <configuration name=\"EurekaclientApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\">\r\n      <module name=\"userService\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.example.eurekaclient.EurekaclientApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"EurekaserverApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\">\r\n      <module name=\"eurekaserver\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.example.eurekaserver.EurekaserverApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"LoginApplication (1)\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"userService\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.example.controller.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.example.controller.LoginApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"LoginApplication (2)\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"userService\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.example.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.example.LoginApplication\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.example.LoginApplication\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"LoginApplication (3)\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"userService\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"LoginApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"RegisterApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\">\r\n      <module name=\"register\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.example.RegisterApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"SearchApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Search\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"example.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"example.SearchApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"SearchserviceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\">\r\n      <module name=\"searchservice\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.example.searchservice.SearchserviceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"UserApplication (1)\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\">\r\n      <module name=\"user\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"services.user.UserApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"UserApplication (2)\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Ver1.0.3\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"Service.user.src.main.java.Service.user.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"Service.user.src.main.java.Service.user.UserApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"UserApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\">\r\n      <module name=\"user\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.example.user.UserApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"UserserviceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\">\r\n      <module name=\"userservice\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.example.userservice.UserserviceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"Spring Boot.EurekaclientApplication\" />\r\n      <item itemvalue=\"Spring Boot.EurekaserverApplication\" />\r\n      <item itemvalue=\"Spring Boot.RegisterApplication\" />\r\n      <item itemvalue=\"Spring Boot.UserApplication\" />\r\n      <item itemvalue=\"Spring Boot.UserApplication (1)\" />\r\n      <item itemvalue=\"Spring Boot.UserserviceApplication\" />\r\n      <item itemvalue=\"Spring Boot.SearchserviceApplication\" />\r\n      <item itemvalue=\"Spring Boot.LoginApplication (1)\" />\r\n      <item itemvalue=\"Spring Boot.LoginApplication (2)\" />\r\n      <item itemvalue=\"Spring Boot.LoginApplication (3)\" />\r\n      <item itemvalue=\"Spring Boot.UserApplication (2)\" />\r\n      <item itemvalue=\"Spring Boot.SearchApplication\" />\r\n    </list>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Spring Boot.SearchApplication\" />\r\n        <item itemvalue=\"Spring Boot.UserApplication (2)\" />\r\n        <item itemvalue=\"Spring Boot.LoginApplication (2)\" />\r\n        <item itemvalue=\"Spring Boot.LoginApplication (3)\" />\r\n        <item itemvalue=\"Spring Boot.LoginApplication (1)\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"f3b9bff4-6857-4d21-aee8-60c58f3e857e\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1606379066836</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1606379066836</updated>\r\n      <workItem from=\"1606379067918\" duration=\"2383000\" />\r\n      <workItem from=\"1606449051912\" duration=\"3401000\" />\r\n      <workItem from=\"1606456474789\" duration=\"15985000\" />\r\n      <workItem from=\"1606544155238\" duration=\"1995000\" />\r\n      <workItem from=\"1606550981362\" duration=\"705000\" />\r\n      <workItem from=\"1606568287159\" duration=\"3036000\" />\r\n      <workItem from=\"1606621023867\" duration=\"2199000\" />\r\n      <workItem from=\"1606666656065\" duration=\"42000\" />\r\n      <workItem from=\"1606668077404\" duration=\"8343000\" />\r\n      <workItem from=\"1606695089415\" duration=\"9883000\" />\r\n      <workItem from=\"1606716304872\" duration=\"9778000\" />\r\n      <workItem from=\"1606733125477\" duration=\"307000\" />\r\n      <workItem from=\"1606735752119\" duration=\"1545000\" />\r\n      <workItem from=\"1606904233967\" duration=\"674000\" />\r\n      <workItem from=\"1606907134683\" duration=\"5425000\" />\r\n      <workItem from=\"1606932413290\" duration=\"1504000\" />\r\n      <workItem from=\"1606976350069\" duration=\"1925000\" />\r\n      <workItem from=\"1607002307605\" duration=\"10412000\" />\r\n      <workItem from=\"1607042960837\" duration=\"13341000\" />\r\n      <workItem from=\"1607083716579\" duration=\"1441000\" />\r\n      <workItem from=\"1607141638400\" duration=\"322000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"203\" y=\"92\" width=\"1150\" height=\"732\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog\" timestamp=\"1607045175256\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"203\" y=\"92\" width=\"1150\" height=\"732\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824\" timestamp=\"1607045175256\" />\r\n    <state x=\"480\" y=\"213\" key=\"#com.intellij.fileTypes.FileTypeChooser\" timestamp=\"1607015782954\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"480\" y=\"213\" key=\"#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824\" timestamp=\"1607015782954\" />\r\n    <state x=\"574\" y=\"128\" key=\"#com.intellij.ide.util.MemberChooser\" timestamp=\"1606909811288\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"574\" y=\"128\" key=\"#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824\" timestamp=\"1606909811288\" />\r\n    <state x=\"498\" y=\"201\" key=\"#com.intellij.ide.util.TreeClassChooserDialog\" timestamp=\"1606716226448\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"498\" y=\"201\" key=\"#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824\" timestamp=\"1606716226448\" />\r\n    <state x=\"599\" y=\"106\" key=\"#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog\" timestamp=\"1606700167761\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"599\" y=\"106\" key=\"#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1536.824@0.0.1536.824\" timestamp=\"1606700167761\" />\r\n    <state x=\"413\" y=\"335\" key=\"#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog\" timestamp=\"1607015916234\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"413\" y=\"335\" key=\"#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.824@0.0.1536.824\" timestamp=\"1607015916234\" />\r\n    <state x=\"548\" y=\"292\" key=\"#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages\" timestamp=\"1606476598750\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"548\" y=\"292\" key=\"#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1536.824@0.0.1536.824\" timestamp=\"1606476598750\" />\r\n    <state x=\"499\" y=\"167\" key=\"#com.intellij.util.ui.classpath.ChooseLibrariesDialog\" timestamp=\"1606700176478\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"499\" y=\"167\" key=\"#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.824@0.0.1536.824\" timestamp=\"1606700176478\" />\r\n    <state width=\"760\" height=\"466\" key=\"DebuggerActiveHint\" timestamp=\"1606676980442\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state width=\"760\" height=\"466\" key=\"DebuggerActiveHint/0.0.1536.824@0.0.1536.824\" timestamp=\"1606676980442\" />\r\n    <state x=\"549\" y=\"167\" key=\"FileChooserDialogImpl\" timestamp=\"1607046555955\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"549\" y=\"167\" key=\"FileChooserDialogImpl/0.0.1536.824@0.0.1536.824\" timestamp=\"1607046555955\" />\r\n    <state x=\"0\" y=\"0\" key=\"FileDocumentManager.FileCacheConflict\" timestamp=\"1606697188191\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"0\" y=\"0\" key=\"FileDocumentManager.FileCacheConflict/0.0.1536.824@0.0.1536.824\" timestamp=\"1606697188191\" />\r\n    <state width=\"1493\" height=\"261\" key=\"GridCell.Tab.0.bottom\" timestamp=\"1607058288977\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state width=\"1493\" height=\"261\" key=\"GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824\" timestamp=\"1607058288977\" />\r\n    <state width=\"1493\" height=\"261\" key=\"GridCell.Tab.0.center\" timestamp=\"1607058288977\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state width=\"1493\" height=\"261\" key=\"GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824\" timestamp=\"1607058288977\" />\r\n    <state width=\"1493\" height=\"261\" key=\"GridCell.Tab.0.left\" timestamp=\"1607058288977\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state width=\"1493\" height=\"261\" key=\"GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824\" timestamp=\"1607058288977\" />\r\n    <state width=\"1493\" height=\"261\" key=\"GridCell.Tab.0.right\" timestamp=\"1607058288977\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state width=\"1493\" height=\"261\" key=\"GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824\" timestamp=\"1607058288977\" />\r\n    <state width=\"1493\" height=\"261\" key=\"GridCell.Tab.1.bottom\" timestamp=\"1607058228886\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state width=\"1493\" height=\"261\" key=\"GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824\" timestamp=\"1607058228886\" />\r\n    <state width=\"1493\" height=\"261\" key=\"GridCell.Tab.1.center\" timestamp=\"1607058228886\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state width=\"1493\" height=\"261\" key=\"GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824\" timestamp=\"1607058228886\" />\r\n    <state width=\"1493\" height=\"261\" key=\"GridCell.Tab.1.left\" timestamp=\"1607058228886\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state width=\"1493\" height=\"261\" key=\"GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824\" timestamp=\"1607058228886\" />\r\n    <state width=\"1493\" height=\"261\" key=\"GridCell.Tab.1.right\" timestamp=\"1607058228886\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state width=\"1493\" height=\"261\" key=\"GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824\" timestamp=\"1607058228886\" />\r\n    <state width=\"212\" height=\"477\" key=\"HiddenNamespacesPopup\" timestamp=\"1607002343212\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state width=\"212\" height=\"477\" key=\"HiddenNamespacesPopup/0.0.1536.824@0.0.1536.824\" timestamp=\"1607002343212\" />\r\n    <state x=\"299\" y=\"67\" key=\"Maven.ArtifactSearchDialog\" timestamp=\"1606912624022\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"299\" y=\"67\" key=\"Maven.ArtifactSearchDialog/0.0.1536.824@0.0.1536.824\" timestamp=\"1606912624022\" />\r\n    <state x=\"167\" y=\"0\" key=\"SettingsEditor\" timestamp=\"1606701964184\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"167\" y=\"0\" key=\"SettingsEditor/0.0.1536.824@0.0.1536.824\" timestamp=\"1606701964184\" />\r\n    <state width=\"775\" height=\"419\" key=\"XDebugger.FullValuePopup\" timestamp=\"1607053468700\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state width=\"775\" height=\"419\" key=\"XDebugger.FullValuePopup/0.0.1536.824@0.0.1536.824\" timestamp=\"1607053468700\" />\r\n    <state x=\"565\" y=\"190\" key=\"chooseDestDirectoryDialog\" timestamp=\"1606723539329\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"565\" y=\"190\" key=\"chooseDestDirectoryDialog/0.0.1536.824@0.0.1536.824\" timestamp=\"1606723539329\" />\r\n    <state x=\"485\" y=\"304\" key=\"com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD\" timestamp=\"1606700142379\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"485\" y=\"304\" key=\"com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824\" timestamp=\"1606700142379\" />\r\n    <state x=\"326\" y=\"73\" key=\"new project wizard\" timestamp=\"1607083774645\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"326\" y=\"73\" key=\"new project wizard/0.0.1536.824@0.0.1536.824\" timestamp=\"1607083774645\" />\r\n    <state x=\"431\" y=\"145\" width=\"672\" height=\"678\" key=\"search.everywhere.popup\" timestamp=\"1606568423857\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"431\" y=\"145\" width=\"672\" height=\"678\" key=\"search.everywhere.popup/0.0.1536.824@0.0.1536.824\" timestamp=\"1606568423857\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/Service/userService/src/main/java/com/example/controller/LoginController.java</url>\r\n          <line>31</line>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/Service/userService/src/main/java/com/example/controller/LoginController.java</url>\r\n          <line>32</line>\r\n          <option name=\"timeStamp\" value=\"2\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/Service/userService/src/main/java/com/example/controller/LoginController.java</url>\r\n          <line>33</line>\r\n          <option name=\"timeStamp\" value=\"3\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/Service/userService/src/main/java/com/example/controller/LoginController.java</url>\r\n          <line>35</line>\r\n          <option name=\"timeStamp\" value=\"5\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/Service/userService/src/main/java/com/example/controller/LoginController.java</url>\r\n          <line>37</line>\r\n          <option name=\"timeStamp\" value=\"6\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/Service/userService/src/main/java/com/example/controller/LoginController.java</url>\r\n          <line>44</line>\r\n          <option name=\"timeStamp\" value=\"7\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/Service/userService/src/main/java/com/example/controller/LoginController.java</url>\r\n          <line>23</line>\r\n          <option name=\"timeStamp\" value=\"9\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/services/userservice/src/main/java/com/example/LoginApplication.java</url>\r\n          <line>17</line>\r\n          <option name=\"timeStamp\" value=\"10\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/services/userservice/src/main/java/com/example/controller/LoginController.java</url>\r\n          <line>24</line>\r\n          <option name=\"timeStamp\" value=\"11\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/services/userservice/src/main/java/com/example/controller/LoginController.java</url>\r\n          <line>32</line>\r\n          <option name=\"timeStamp\" value=\"12\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/services/userservice/src/main/java/com/example/controller/LoginController.java</url>\r\n          <line>33</line>\r\n          <option name=\"timeStamp\" value=\"13\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/Service/userService/src/main/java/com/example/LoginApplication.java</url>\r\n          <line>16</line>\r\n          <option name=\"timeStamp\" value=\"14\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/Service/userService/src/main/java/com/example/LoginApplication.java</url>\r\n          <line>14</line>\r\n          <option name=\"timeStamp\" value=\"15\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/userservice/src/main/java/com/example/userservice/cotroller/LoginController.java</url>\r\n          <line>24</line>\r\n          <option name=\"timeStamp\" value=\"17\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/userservice/src/main/java/com/example/userservice/cotroller/LoginController.java</url>\r\n          <line>27</line>\r\n          <option name=\"timeStamp\" value=\"18\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/userservice/src/main/java/com/example/userservice/cotroller/LoginController.java</url>\r\n          <line>33</line>\r\n          <option name=\"timeStamp\" value=\"19\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/userservice/src/main/java/com/example/userservice/cotroller/LoginController.java</url>\r\n          <line>34</line>\r\n          <option name=\"timeStamp\" value=\"20\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/userservice/src/main/java/com/example/userservice/cotroller/LoginController.java</url>\r\n          <line>38</line>\r\n          <option name=\"timeStamp\" value=\"21\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/userservice/src/main/java/com/example/userservice/cotroller/LoginController.java</url>\r\n          <line>42</line>\r\n          <option name=\"timeStamp\" value=\"22\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/Search/src/main/java/example/SearchApplication.java</url>\r\n          <line>10</line>\r\n          <option name=\"timeStamp\" value=\"24\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/controller/searchController.java</url>\r\n          <line>47</line>\r\n          <option name=\"timeStamp\" value=\"28\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/controller/searchController.java</url>\r\n          <line>48</line>\r\n          <option name=\"timeStamp\" value=\"29\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/controller/searchController.java</url>\r\n          <line>49</line>\r\n          <option name=\"timeStamp\" value=\"30\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/search/connectsearch.java</url>\r\n          <line>60</line>\r\n          <option name=\"timeStamp\" value=\"31\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/controller/searchController.java</url>\r\n          <line>36</line>\r\n          <option name=\"timeStamp\" value=\"33\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/controller/searchController.java</url>\r\n          <line>44</line>\r\n          <option name=\"timeStamp\" value=\"35\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-field\">\r\n          <url>file://$PROJECT_DIR$/userservice/src/main/java/com/example/userservice/cotroller/LoginController.java</url>\r\n          <line>16</line>\r\n          <properties field=\"jdbcTemplate\" class=\"com.example.userservice.cotroller.LoginController\" />\r\n          <option name=\"timeStamp\" value=\"23\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-method\">\r\n          <url>file://$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/controller/searchController.java</url>\r\n          <line>80</line>\r\n          <properties class=\"com.example.searchservice.controller.searchController\" method=\"base64Encode\">\r\n            <option name=\"EMULATED\" value=\"true\" />\r\n          </properties>\r\n          <option name=\"timeStamp\" value=\"32\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 0611014caa93fd297f7b6f37c86a72b7ce66244d)
++++ .idea/workspace.xml	(date 1608452567977)
+@@ -1,8 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="AutoImportSettings">
+-    <option name="autoReloadType" value="SELECTIVE" />
+-  </component>
+   <component name="BranchesTreeState">
+     <expand>
+       <path>
+@@ -23,33 +20,12 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="f3b9bff4-6857-4d21-aee8-60c58f3e857e" name="Default Changelist" comment="">
+-      <change afterPath="$PROJECT_DIR$/Search/pom.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Search/src/main/java/example/SearchApplication.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Search/src/main/java/example/controller/SearchDao.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Search/src/main/java/example/controller/SearchService.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Search/src/main/java/example/controller/httpConnectionService.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Search/src/main/resources/application.yml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/searchservice/.gitignore" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/searchservice/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/searchservice/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/searchservice/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/searchservice/mvnw" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/searchservice/mvnw.cmd" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/searchservice/pom.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/SearchserviceApplication.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/controller/searchController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/search/connectsearch.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/searchservice/src/main/resources/application.yml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/searchservice/src/test/java/com/example/searchservice/SearchserviceApplicationTests.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/userService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/userService/pom.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/searchservice/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/searchservice/src/main/resources/application.yml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/userService/src/main/java/com/example/userservice/UserserviceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/userService/src/main/java/com/example/userservice/UserserviceApplication.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/userService/src/main/java/com/example/userservice/cotroller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/userService/src/main/java/com/example/userservice/cotroller/LoginController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/userService/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/userService/src/main/resources/application.yml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -75,9 +51,6 @@
+     </option>
+   </component>
+   <component name="ProjectId" id="1kou3I5r8BPNYXhkzj9ieKFrshy" />
+-  <component name="ProjectLevelVcsManager">
+-    <ConfirmationsSetting value="2" id="Add" />
+-  </component>
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+@@ -98,6 +71,12 @@
+     <property name="aspect.path.notification.shown" value="true" />
+     <property name="last_directory_selection" value="$PROJECT_DIR$" />
+     <property name="last_opened_file_path" value="$PROJECT_DIR$/searchservice/pom.xml" />
++    <property name="node.js.detected.package.eslint" value="true" />
++    <property name="node.js.detected.package.tslint" value="true" />
++    <property name="node.js.path.for.package.eslint" value="project" />
++    <property name="node.js.path.for.package.tslint" value="project" />
++    <property name="node.js.selected.package.eslint" value="(autodetect)" />
++    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+     <property name="project.structure.last.edited" value="Modules" />
+     <property name="project.structure.proportion" value="0.15" />
+     <property name="project.structure.side.proportion" value="0.2" />
+@@ -253,7 +232,10 @@
+       </list>
+     </recent_temporary>
+   </component>
+-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
++  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
++  <component name="SvnConfiguration">
++    <configuration />
++  </component>
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+       <changelist id="f3b9bff4-6857-4d21-aee8-60c58f3e857e" name="Default Changelist" comment="" />
+@@ -282,11 +264,17 @@
+       <workItem from="1607042960837" duration="13341000" />
+       <workItem from="1607083716579" duration="1441000" />
+       <workItem from="1607141638400" duration="322000" />
++      <workItem from="1607834452187" duration="2522000" />
++      <workItem from="1607859804239" duration="2336000" />
++      <workItem from="1608188221997" duration="2068000" />
++      <workItem from="1608293992060" duration="13427000" />
++      <workItem from="1608445471697" duration="4030000" />
++      <workItem from="1608451930575" duration="637000" />
+     </task>
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+-    <option name="version" value="3" />
++    <option name="version" value="2" />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+     <option name="TAB_STATES">
+@@ -328,6 +316,10 @@
+       <screen x="0" y="0" width="1536" height="824" />
+     </state>
+     <state x="413" y="335" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1607015916234" />
++    <state x="539" y="279" width="457" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1608188311788">
++      <screen x="0" y="0" width="1536" height="824" />
++    </state>
++    <state x="539" y="279" width="457" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1608188311788" />
+     <state x="548" y="292" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1606476598750">
+       <screen x="0" y="0" width="1536" height="824" />
+     </state>
+@@ -348,38 +340,38 @@
+       <screen x="0" y="0" width="1536" height="824" />
+     </state>
+     <state x="0" y="0" key="FileDocumentManager.FileCacheConflict/0.0.1536.824@0.0.1536.824" timestamp="1606697188191" />
+-    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1607058288977">
++    <state width="1493" height="167" key="GridCell.Tab.0.bottom" timestamp="1608452567837">
+       <screen x="0" y="0" width="1536" height="824" />
+     </state>
+-    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607058288977" />
+-    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1607058288977">
++    <state width="1493" height="167" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1608452567837" />
++    <state width="1493" height="167" key="GridCell.Tab.0.center" timestamp="1608452567837">
+       <screen x="0" y="0" width="1536" height="824" />
+     </state>
+-    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607058288977" />
+-    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1607058288977">
++    <state width="1493" height="167" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1608452567837" />
++    <state width="1493" height="167" key="GridCell.Tab.0.left" timestamp="1608452567837">
+       <screen x="0" y="0" width="1536" height="824" />
+     </state>
+-    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607058288977" />
+-    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1607058288977">
++    <state width="1493" height="167" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1608452567837" />
++    <state width="1493" height="167" key="GridCell.Tab.0.right" timestamp="1608452567837">
+       <screen x="0" y="0" width="1536" height="824" />
+     </state>
+-    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607058288977" />
+-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1607058228886">
++    <state width="1493" height="167" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1608452567837" />
++    <state width="1493" height="167" key="GridCell.Tab.1.bottom" timestamp="1608452567837">
+       <screen x="0" y="0" width="1536" height="824" />
+     </state>
+-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607058228886" />
+-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1607058228886">
++    <state width="1493" height="167" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1608452567837" />
++    <state width="1493" height="167" key="GridCell.Tab.1.center" timestamp="1608452567837">
+       <screen x="0" y="0" width="1536" height="824" />
+     </state>
+-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1607058228886" />
+-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1607058228886">
++    <state width="1493" height="167" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1608452567837" />
++    <state width="1493" height="167" key="GridCell.Tab.1.left" timestamp="1608452567837">
+       <screen x="0" y="0" width="1536" height="824" />
+     </state>
+-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1607058228886" />
+-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1607058228886">
++    <state width="1493" height="167" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1608452567837" />
++    <state width="1493" height="167" key="GridCell.Tab.1.right" timestamp="1608452567837">
+       <screen x="0" y="0" width="1536" height="824" />
+     </state>
+-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1607058228886" />
++    <state width="1493" height="167" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1608452567837" />
+     <state width="212" height="477" key="HiddenNamespacesPopup" timestamp="1607002343212">
+       <screen x="0" y="0" width="1536" height="824" />
+     </state>
+@@ -482,32 +474,32 @@
+           <option name="timeStamp" value="15" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/userservice/src/main/java/com/example/userservice/cotroller/LoginController.java</url>
++          <url>file://$PROJECT_DIR$/userService/src/main/java/com/example/userservice/cotroller/LoginController.java</url>
+           <line>24</line>
+           <option name="timeStamp" value="17" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/userservice/src/main/java/com/example/userservice/cotroller/LoginController.java</url>
++          <url>file://$PROJECT_DIR$/userService/src/main/java/com/example/userservice/cotroller/LoginController.java</url>
+           <line>27</line>
+           <option name="timeStamp" value="18" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/userservice/src/main/java/com/example/userservice/cotroller/LoginController.java</url>
++          <url>file://$PROJECT_DIR$/userService/src/main/java/com/example/userservice/cotroller/LoginController.java</url>
+           <line>33</line>
+           <option name="timeStamp" value="19" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/userservice/src/main/java/com/example/userservice/cotroller/LoginController.java</url>
++          <url>file://$PROJECT_DIR$/userService/src/main/java/com/example/userservice/cotroller/LoginController.java</url>
+           <line>34</line>
+           <option name="timeStamp" value="20" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/userservice/src/main/java/com/example/userservice/cotroller/LoginController.java</url>
++          <url>file://$PROJECT_DIR$/userService/src/main/java/com/example/userservice/cotroller/LoginController.java</url>
+           <line>38</line>
+           <option name="timeStamp" value="21" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/userservice/src/main/java/com/example/userservice/cotroller/LoginController.java</url>
++          <url>file://$PROJECT_DIR$/userService/src/main/java/com/example/userservice/cotroller/LoginController.java</url>
+           <line>42</line>
+           <option name="timeStamp" value="22" />
+         </line-breakpoint>
+@@ -527,11 +519,6 @@
+           <option name="timeStamp" value="29" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/controller/searchController.java</url>
+-          <line>49</line>
+-          <option name="timeStamp" value="30" />
+-        </line-breakpoint>
+-        <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/search/connectsearch.java</url>
+           <line>60</line>
+           <option name="timeStamp" value="31" />
+@@ -546,11 +533,10 @@
+           <line>44</line>
+           <option name="timeStamp" value="35" />
+         </line-breakpoint>
+-        <line-breakpoint enabled="true" type="java-field">
+-          <url>file://$PROJECT_DIR$/userservice/src/main/java/com/example/userservice/cotroller/LoginController.java</url>
+-          <line>16</line>
+-          <properties field="jdbcTemplate" class="com.example.userservice.cotroller.LoginController" />
+-          <option name="timeStamp" value="23" />
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/controller/searchController.java</url>
++          <line>49</line>
++          <option name="timeStamp" value="36" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-method">
+           <url>file://$PROJECT_DIR$/searchservice/src/main/java/com/example/searchservice/controller/searchController.java</url>
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CompilerConfiguration\">\r\n    <annotationProcessing>\r\n      <profile name=\"Maven default annotation processors profile\" enabled=\"true\">\r\n        <sourceOutputDir name=\"target/generated-sources/annotations\" />\r\n        <sourceTestOutputDir name=\"target/generated-test-sources/test-annotations\" />\r\n        <outputRelativeToContentRoot value=\"true\" />\r\n        <module name=\"eurekaserver\" />\r\n        <module name=\"User\" />\r\n        <module name=\"commonmodel\" />\r\n        <module name=\"userservice\" />\r\n        <module name=\"Search\" />\r\n        <module name=\"Service\" />\r\n        <module name=\"Eureka\" />\r\n        <module name=\"searchservice\" />\r\n      </profile>\r\n    </annotationProcessing>\r\n    <bytecodeTargetLevel>\r\n      <module name=\"Eureka\" target=\"1.5\" />\r\n      <module name=\"eurekaclient\" target=\"1.8\" />\r\n      <module name=\"register\" target=\"1.8\" />\r\n      <module name=\"Service\" target=\"1.5\" />\r\n      <module name=\"services\" target=\"1.5\" />\r\n      <module name=\"User\" target=\"1.5\" />\r\n      <module name=\"user\" target=\"1.8\" />\r\n      <module name=\"userService\" target=\"1.5\" />\r\n    </bytecodeTargetLevel>\r\n  </component>\r\n  <component name=\"JavacSettings\">\r\n    <option name=\"ADDITIONAL_OPTIONS_OVERRIDE\">\r\n      <module name=\"Search\" options=\"-parameters\" />\r\n      <module name=\"eurekaclient\" options=\"-parameters\" />\r\n      <module name=\"eurekaserver\" options=\"-parameters\" />\r\n      <module name=\"register\" options=\"-parameters\" />\r\n      <module name=\"searchservice\" options=\"-parameters\" />\r\n      <module name=\"user\" options=\"-parameters\" />\r\n      <module name=\"userService\" options=\"\" />\r\n      <module name=\"userservice\" options=\"-parameters\" />\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/compiler.xml	(revision 0611014caa93fd297f7b6f37c86a72b7ce66244d)
++++ .idea/compiler.xml	(date 1608452638965)
+@@ -6,14 +6,14 @@
+         <sourceOutputDir name="target/generated-sources/annotations" />
+         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+         <outputRelativeToContentRoot value="true" />
+-        <module name="eurekaserver" />
++        <module name="userservice" />
++        <module name="Service" />
+         <module name="User" />
+         <module name="commonmodel" />
+-        <module name="userservice" />
+         <module name="Search" />
+-        <module name="Service" />
+         <module name="Eureka" />
+         <module name="searchservice" />
++        <module name="eurekaserver" />
+       </profile>
+     </annotationProcessing>
+     <bytecodeTargetLevel>
+Index: userService/src/main/java/com/example/userservice/cotroller/LoginController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.userservice.cotroller;\r\nimport com.mchange.v2.c3p0.ComboPooledDataSource;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration;\r\nimport org.springframework.jdbc.core.JdbcTemplate;\r\nimport org.springframework.web.bind.annotation.*;\r\n\r\nimport java.beans.PropertyVetoException;\r\nimport java.sql.*;\r\nimport java.util.List;\r\nimport java.util.Map;\r\nimport com.alibaba.druid.pool.DruidDataSource;\r\n@RestController\r\npublic class LoginController {\r\n\r\n    @Autowired\r\n    JdbcTemplate jdbcTemplate;\r\n\r\n    @CrossOrigin\r\n    @RequestMapping(path = \"/name\", method = RequestMethod.GET)\r\n    @ResponseBody\r\n    public int Login(@RequestParam(value = \"username\") String userName, @RequestParam(value = \"userpwd\") String userPwd) throws ClassNotFoundException, PropertyVetoException, SQLException {\r\n        //Class.forName(\"com.mysql.cj.jdbc.Driver\");\r\n        //在user表中检索是否有username\r\n        int userid = -1;\r\n\r\n        //ComboPooledDataSource dataSource = new ComboPooledDataSource();\r\n        //String connectionUrl = \"jdbc:mysql://rm-bp115mpt4e06jd56y125010im.mysql.rds.aliyuncs.com/login-register\";\r\n      //  ResultSet resultSet;\r\n      /*  dataSource.setDriverClass(\"com.mysql.cj.jdbc.Driver\");\r\n        dataSource.setJdbcUrl(connectionUrl);\r\n        dataSource.setUser(\"web_soa\");\r\n        dataSource.setPassword(\"Web_soa123\");*/\r\n/*\r\n        Connection connection = dataSource.getConnection();\r\n        Statement statement = connection.createStatement();*/\r\n        String sqlquery = \"SELECT * FROM user WHERE user_name=?\";\r\n        //输入希望执行的SQL。\r\n        String result= jdbcTemplate.queryForObject(sqlquery,String.class,userName);\r\n          /*      (sqlquery + '\"' + userName + '\"');*/\r\n\r\n        /*List<Map<String, Object>> name = */\r\n        if (result != null) { /*  //有，返回-1\r\n        if (name != null) {*/\r\n            return -1;\r\n        }\r\n\r\n        //没有，把username和userpwd加入数据库中，并分配一个userid\r\n        else {\r\n            //准备sql语句\r\n            String sql1 = \"SELECT MAX(user_ID) FROM user\";\r\n            int maxid = jdbcTemplate.queryForObject(sql1, Integer.class);\r\n            System.out.println(maxid);\r\n            String sql = \"INSERT INTO user VALUES(\" + '\"' + (maxid + 1) + '\"' + \",\" + '\"' + userName + '\"' + \",\" + '\"' + userPwd + '\"' + \")\";\r\n            //执行sql语句\r\n            jdbcTemplate.execute(sql);\r\n            return 0;\r\n        }\r\n    }\r\n\r\n}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- userService/src/main/java/com/example/userservice/cotroller/LoginController.java	(revision 0611014caa93fd297f7b6f37c86a72b7ce66244d)
++++ userService/src/main/java/com/example/userservice/cotroller/LoginController.java	(date 1608384332498)
+@@ -17,7 +17,7 @@
+     JdbcTemplate jdbcTemplate;
+ 
+     @CrossOrigin
+-    @RequestMapping(path = "/name", method = RequestMethod.GET)
++    @RequestMapping(path = "/login", method = RequestMethod.GET)
+     @ResponseBody
+     public int Login(@RequestParam(value = "username") String userName, @RequestParam(value = "userpwd") String userPwd) throws ClassNotFoundException, PropertyVetoException, SQLException {
+         //Class.forName("com.mysql.cj.jdbc.Driver");
