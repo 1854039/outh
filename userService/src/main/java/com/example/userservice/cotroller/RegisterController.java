@@ -1,29 +1,24 @@
 package com.example.userservice.cotroller;
 import com.example.userservice.Dao.UserDao;
-import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.jdbc.core.JdbcTemplate;
+
 import java.beans.PropertyVetoException;
 import java.sql.*;
-import java.util.List;
-import java.util.Map;
-import com.alibaba.druid.pool.DruidDataSource;
+
 @RestController
 public class RegisterController {
     @Autowired
    private JdbcTemplate jdbcTemplate;
-//
 
     @CrossOrigin
-    @RequestMapping(path = "/register", method = RequestMethod.GET)
+    @RequestMapping(path = "/Login", method = RequestMethod.GET)
     @ResponseBody
     public int Login(@RequestParam(value = "username") String userName, @RequestParam(value = "userpwd") String userPwd) throws ClassNotFoundException, PropertyVetoException, SQLException {
 
 
-        UserDao userDao=new UserDao();
+        //UserDao userDao=new UserDao();
         String sqlquery = "SELECT user_name FROM user WHERE user_name="+'"'+userName+'"';
         //输入希望执行的SQL。
         String result="";
